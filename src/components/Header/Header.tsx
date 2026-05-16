@@ -59,6 +59,7 @@ export default function Header() {
 
   // ================= ROLE CHECK =================
   const isAdmin = user?.roles?.includes("Admin") || user?.roles?.includes("SuperAdmin")
+  const isTeacher = user?.roles?.includes("Teacher")
   const isClient = user?.roles?.includes("Client")
 
   return (
@@ -80,6 +81,10 @@ export default function Header() {
             <>
               {isAdmin && (
                 <Link href="/admin" className="text-slate-700 hover:text-black transition">Admin Panel</Link>
+              )}
+
+              {isTeacher && (
+                <Link href="/teacher" className="text-slate-700 hover:text-black transition">Teacher Panel</Link>
               )}
 
               {isClient && (
