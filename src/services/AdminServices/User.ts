@@ -64,7 +64,7 @@ export const assignRole = async (userId: string, roleName: string): Promise<void
   const userStr = typeof window !== "undefined" ? localStorage.getItem("user") : null;
   const token = userStr ? JSON.parse(userStr)?.accessToken : null;
 
-  await api.post("/Admin/assign-role", 
+  await api.post("/Admin/users/assign-role", 
     { userId, roleName }, // Request Body
     {
       headers: {
@@ -80,7 +80,7 @@ export const removeRole = async (userId: string, roleName: string): Promise<void
   const token = userStr ? JSON.parse(userStr)?.accessToken : null;
 
   await api.post(
-    "/Admin/remove-role",
+    "/Admin/users/remove-role",
     { userId, roleName },
     {
       headers: {
