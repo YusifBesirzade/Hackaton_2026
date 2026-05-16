@@ -6,6 +6,8 @@ import "./globals.css"
 
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
+import { HeaderWrapper } from "@/components/Header/HeaderWrapper"
+import { FooterWrapper } from "@/components/Footer/FooterWrapper"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,13 +38,13 @@ export default function RootLayout({
         <GoogleOAuthProvider
           clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}
         >
-          <Header />
+          <HeaderWrapper />
 
           <main className="flex-1">
             {children}
           </main>
 
-          <Footer />
+          <FooterWrapper />
         </GoogleOAuthProvider>
       </body>
     </html>
