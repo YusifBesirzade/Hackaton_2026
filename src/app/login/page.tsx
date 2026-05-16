@@ -51,12 +51,14 @@ const Page = () => {
 
         const role = userData.roles?.[0]
 
-        if (role === "Admin") {
+        if (role === "Admin" || role === "SuperAdmin") {
             router.push("/admin")
-        } else if (role === "Client") {
-            router.push("/")
+        } else if (role === "Teacher") {
+            router.push("/teacher")
+        } else if (role === "Client" || role === "Student") {
+            router.push("/student")
         } else {
-            router.push("/unauthorized")
+            router.push("/")
         }
     }
     const handleLogin = async (
