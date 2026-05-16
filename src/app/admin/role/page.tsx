@@ -330,7 +330,7 @@ const RolesPage = () => {
               )}
             </div>
 
-            <button type="submit" disabled={actionLoading || (viewingRoleName && selectedPermissions.length === 0)}
+            <button type="submit" 
               className={`w-full text-white font-medium p-3 rounded-lg text-sm transition-colors flex items-center justify-center gap-2 mt-2 disabled:opacity-40 disabled:cursor-not-allowed ${
                 viewingRoleName ? "bg-amber-600 hover:bg-amber-700" : "bg-black hover:bg-slate-800"
               }`}>
