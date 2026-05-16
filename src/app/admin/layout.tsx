@@ -22,7 +22,7 @@ export default function RootLayout({
         {!isAuthPage && <Sidebar />}
 
         {/* Sidebar aktiv olduqda sağ tərəfə pl-64 (256px) boşluq veririk */}
-        <main className={`flex-1 flex flex-col min-h-screen ${!isAuthPage ? "pl-64" : ""}`}>
+        <main className={`flex-1 flex flex-col min-h-screen ${!isAuthPage ? "pl-70" : ""}`}>
           {children}
         </main>
       </div>
