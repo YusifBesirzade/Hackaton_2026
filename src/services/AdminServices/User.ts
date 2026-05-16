@@ -35,3 +35,73 @@ export const getUsers = async (page: number = 1, pageSize: number = 10, search: 
   });
   return res.data;
 };
+
+export const deleteUser = async (userId: string): Promise<void> => {
+  const userStr = typeof window !== "undefined" ? localStorage.getItem("user") : null;
+  const token = userStr ? JSON.parse(userStr)?.accessToken : null;
+
+  await api.delete(`/Admin/users/${userId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getUserById = async (userId: string): Promise<User> => {
+  const userStr = typeof window !== "undefined" ? localStorage.getItem("user") : null;
+  const token = userStr ? JSON.parse(userStr)?.accessToken : null;
+
+  const res = await api.get<User>(`/Admin/users/${userId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return res.data;
+};
+
+export const assignRole = async (userId: string, roleName: string): Promise<void> => {
+  const userStr = typeof window !== "undefined" ? localStorage.getItem("user") : null;
+  const token = userStr ? JSON.parse(userStr)?.accessToken : null;
+
+  await api.post("/Admin/assign-role", 
+    { userId, roleName }, // Request Body
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+
+export const removeRole = async (userId: string, roleName: string): Promise<void> => {
+  const userStr = typeof window !== "undefined" ? localStorage.getItem("user") : null;
+  const token = userStr ? JSON.parse(userStr)?.accessToken : null;
+
+  await api.post(
+    "/Admin/remove-role",
+    { userId, roleName },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+
+export const toggleUserActive = async (userId: string): Promise<void> => {
+  const userStr = typeof window !== "undefined" ? localStorage.getItem("user") : null;
+  const token = userStr ? JSON.parse(userStr)?.accessToken : null;
+
+  await api.patch(
+    `/Admin/users/${userId}/toggle-active`,
+    {}, // body boşdur
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
