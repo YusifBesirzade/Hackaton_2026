@@ -30,7 +30,7 @@ export const getUsers = async (): Promise<UsersResponse> => {
 export const assignRole = async (data: AssignRoleRequest) => {
   const token = getToken()
 
-  const res = await api.post("/Admin/assign-role", data, {
+  const res = await api.post("/Admin/users/assign-role", data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -43,7 +43,7 @@ export const assignRole = async (data: AssignRoleRequest) => {
 export const removeRole = async (data: RemoveRoleRequest) => {
   const token = getToken()
 
-  const res = await api.post("/Admin/remove-role", data, {
+  const res = await api.post("/Admin/users/remove-role", data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

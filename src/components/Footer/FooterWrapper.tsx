@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 export const FooterWrapper = () => {
   const pathname = usePathname()
   
-  const isAdminPage = pathname.startsWith("/admin")|| pathname.startsWith("/teacher")
+  const isAdminPage = pathname.startsWith("/admin")|| pathname.startsWith("/teacher") || pathname.startsWith("/student")
 
   if (isAdminPage) return null
 
