@@ -7,7 +7,7 @@ export const HeaderWrapper = () => {
   const pathname = usePathname()
   
   // Əgər URL "/admin" ilə başlayırsa (və ya tam admin-dirsə) Header-i gizlət
-  const isAdminPage = pathname.startsWith("/admin")
+  const isAdminPage = pathname.startsWith("/admin") || pathname.startsWith("/teacher")
 
   if (isAdminPage) return null
 
