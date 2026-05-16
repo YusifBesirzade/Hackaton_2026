@@ -2,6 +2,7 @@
 
 import { GoogleOAuthProvider } from "@react-oauth/google"
 import { usePathname } from "next/navigation"
+import "./globals.css"
 
 import Sidebar from "./sidebar"
 
